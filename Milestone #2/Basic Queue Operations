@@ -3,7 +3,6 @@
 #include<stdlib.h>
 
 #define MAX_SIZE 100
-
 using namespace std;
 
 class Queue 
