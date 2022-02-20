@@ -1,0 +1,97 @@
+#include <iostream>
+#include<conio.h>
+#include<stdlib.h>
+
+#define MAX_SIZE 100
+
+using namespace std;
+
+class Queue 
+{
+	private:
+    	int item, i;
+    	int arr_queue[MAX_SIZE];
+    	int rear;
+    	int front;
+
+	public:
+
+    	Queue() 
+		{
+        	rear = 0;
+        	front = 0;
+    	}
+
+    	void insert() 
+		{
+        	if (rear == MAX_SIZE)
+            	cout << "\nQueue is full!";
+        	else 
+			{
+            	cout << "\nEnter the value to be inserted : ";
+            	cin>>item;
+            	arr_queue[rear++] = item;
+            	cout << item << " inserted successfully.";
+        	}
+    	}
+
+	    void removeData() 
+		{
+    	    if (front == rear)
+        	    cout << "\nQueue is empty!";
+        	else 
+			{
+            	cout << arr_queue[front] << " removed sucessfully.";
+            	front++;
+        	}
+    	}
+
+   		 void display() 
+		{
+    	    cout << "\nQueue size : " << (rear - front);
+    	    cout << "\nThe queue has : ";
+        	for (i = front; i < rear; i++)
+            	cout << arr_queue[i] << " ";
+    	}
+};
+
+int main() 
+{
+    int choice, exit_p = 1, count=3;
+    Queue obj;
+    do 
+	{
+        cout << "\n\nQueue Main Menu. Enter:";
+		cout << "\n1 to Insert \n2 to Remove \n3 to Display\n4 to Exit.";
+        cout << "\nEnter Your Choice : ";
+        cin>>choice;
+        switch (choice) 
+		{
+            case 1:
+                obj.insert();
+                break;
+            case 2:
+                obj.removeData();
+                break;
+            case 3:
+                obj.display();
+                break;
+            case 4:
+            	exit_p = 0;
+     			cout << "Exitting menu...";
+            	break;
+            default:
+            	count--;
+ 				if (count == 0)
+ 				{
+ 					cout << "Exitting menu...";
+ 					exit_p = 0;
+ 				}
+ 				else 
+					cout << "Invalid choice. Choose again.";
+                break;
+        }
+    } while (exit_p);
+
+    return 0;
+}
