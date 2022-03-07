@@ -1,1 +1,51 @@
-
+class Solution
+{
+ public:
+ Node* create_node()
+ {
+     Node *n;
+     n=(Node*)malloc(sizeof(Node));
+     return(n);
+ }
+   
+   //Function to insert a node at the beginning of the linked list.
+   Node *insertAtBegining(Node *head, int x) 
+   {
+      Node *temp=create_node();
+      temp->data=x;
+      temp->next=NULL;
+      if(head==NULL)
+      {
+          head=temp;
+      }
+      else
+      {
+          temp->next=head;
+          head=temp;
+      }
+      return head;
+   }
+   
+   
+   //Function to insert a node at the end of the linked list.
+   Node *insertAtEnd(Node *head, int x)  
+   {
+      Node *temp=create_node();
+      temp->data=x;
+      temp->next=NULL;
+      if(head==NULL)
+      {
+          head=temp;
+      }
+      else
+      {
+          Node *t=head;
+          while(t->next!=NULL)
+          {
+              t=t->next;
+          }
+          t->next=temp;
+      }
+      return head;
+   }
+};
